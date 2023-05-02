@@ -80,16 +80,18 @@ nav #modebtn:hover{
     display: none;
 }
 
+
+
 /*HOME PAGE STYLING*/
+
 #home{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 20px;
-    height: 100vh;
-	background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('img/hero-bg.png');
+    height: 80vh;
+	background-image:linear-gradient(rgba(0,0,0,0.18),rgba(0,0,0,0.18)),url('img/hero-bg.png');
 	background-position: center;
 	background-repeat: no-repeat;
-    position: relative;
 }
 
 #home #home-text {
@@ -97,26 +99,21 @@ nav #modebtn:hover{
     margin-left: 20%;
 }
 
-#home #homeimg {
-    height: 80%;
-    width: 60%;
-    border-radius: 5%;
-}
-
 h3, h2{
-    color: #0082e6;
+    color: #348ed3;
 }
 
 h3{
-    font-size: 1rem;
+    font-size: 1.7rem;
     font-weight: 500;
 }
 
 h2{
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
 }
 
-#about-me{
+#home .btn{
     color: rgba(6, 101, 209, 0.9);
     padding: 10px;
     border-radius: 5px;
@@ -125,18 +122,79 @@ h2{
     background-color: rgb(1, 11, 24, 0.1);
 }
 
-#about-me:hover{
+#home a{
+    text-decoration: none;
+}
+
+#home a:hover{
     color: white;
     background-color: rgba(6, 101, 209, 0.9);
     border-color: rgba(6, 101, 209, 0.9);
 }
 
+#home #homeimg {
+    height: 90%;
+    width: 55%;
+    border-radius: 5%;
+    margin: 0 auto;
+}
+
+
+
 /*ABOUT ME SECTION STYLING*/
 
-#aboutimg {
+.container{
+    padding: 0px 80px;
+}
+
+#about h1{
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    color: #0082e6;
+    margin: 10px;
+}
+
+#about #aboutimg {
     padding-left: 30px;
-    height: 85vh;
+    height: 75vh;
     width: 90%;
+}
+
+#about .about-details{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#about .about-details p{
+    line-height: 30px;
+}
+
+#about .about-details .stack{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    line-height: 30px;
+}
+
+#about .about-details .stack ul li{
+    list-style: none;
+}
+
+#about .about-details .stack ul li i{
+    color: #0082e6;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+
+/*PORTFOLIO SECTION STYLING*/
+
+#portfolio h1{
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    color: #0082e6;
+    margin: 10px;
 }
 
 /*DARK MODE STYLING*/
@@ -158,7 +216,7 @@ h2{
 
 
 /*MEDIA QUERY FOR SCREENS WITH MAXIMUN WIDTH OF 970px WITH MINIMUM WIDTH OF 800px*/
-@media screen and (max-width:970px) {
+@media screen and (max-width:1000px) {
     nav #navlogo{
         font-size: 1rem;
     }
@@ -170,6 +228,7 @@ h2{
 /*MEDIA QUERY FOR SCREENS WITH MAXIMUN WIDTH OF 800px*/
 @media screen and (max-width:800px) {
 
+/*NAVIGATION BAR*/
     .checkbtn{
         float: right;
         display: block;
@@ -184,8 +243,7 @@ h2{
         display: none;
     }
 
-
-    ul{
+    nav ul{
         position: absolute;
         width: 100vw;
         height: 100vh;
@@ -195,7 +253,6 @@ h2{
         text-align: center;
         transition: all .5s;
     }
-
 
     nav ul li {
         display: block;
@@ -216,26 +273,58 @@ h2{
         left: 0;
     }
 
+
+
+/*HOME PAGE*/
     #home{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         height: 100vh;
-        background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('img/hero-bg.png');
+        background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('img/mypic1.jpg');
         background-position: center;
         background-repeat: no-repeat;
-        background-size:1800px 800px;
+        background-size:500px 650px;
+    }
+
+    .dark #home{
+        background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('img/mypic1.jpg');
     }
 
     #home #home-text{
-        margin-top: 5%;
-        margin-left: 2%;
+        margin-top: 40%;
+        margin-left: 15%;
+    }
+
+    #home h2, h3{
+        color: #fff;
+    }
+
+    #home h2{
+        font-size: 1.9rem;
+    }
+
+    #home h3{
+        font-size: 1.5rem;
     }
 
     #home #homeimg {
-        height: 60vh;
-        width: 70vw;
-        margin-left: 50px;
-        align-content: center;
+        display: none;
+    }
+
+    #home .btn{
+        color: white;
+        border-color: white;
+    }
+
+
+ /*ABOUT ME*/
+    #about .about-details{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    .container{
+        padding: 0%;
     }
 }
 
