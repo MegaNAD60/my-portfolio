@@ -1,0 +1,246 @@
+/*GENERAL STYLING*/
+
+*{
+    margin: 0px;
+    padding: 0%;
+    padding-inline-start: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+
+/*NAVIGATION STYLING*/
+
+nav{
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	padding:10px;
+	background-color:rgba(6, 101, 209, 0.9);
+	color: #fff;
+}
+
+nav #nav-logo{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0px;
+}
+
+nav ul{
+    margin: 0px;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover{
+    background: rgba(145, 183, 233, 0.3);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav #modebtn{
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: white;
+    background-color: rgba(11, 91, 197, 0.1);
+}
+
+nav #modebtn:hover{
+    background-color: #0e54af;
+    border-color: #0d4da1;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    margin-right: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+/*HOME PAGE STYLING*/
+#home{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+    height: 100vh;
+	background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('img/hero-bg.png');
+	background-position: center;
+	background-repeat: no-repeat;
+    position: relative;
+}
+
+#home #home-text {
+    margin-top: 20%;
+    margin-left: 20%;
+}
+
+#home #homeimg {
+    height: 80%;
+    width: 60%;
+    border-radius: 5%;
+}
+
+h3, h2{
+    color: #0082e6;
+}
+
+h3{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+h2{
+    font-size: 2.5rem;
+}
+
+#about-me{
+    color: rgba(6, 101, 209, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgba(6, 101, 209, 0.9);
+    background-color: rgb(1, 11, 24, 0.1);
+}
+
+#about-me:hover{
+    color: white;
+    background-color: rgba(6, 101, 209, 0.9);
+    border-color: rgba(6, 101, 209, 0.9);
+}
+
+/*ABOUT ME SECTION STYLING*/
+
+#aboutimg {
+    padding-left: 30px;
+    height: 85vh;
+    width: 90%;
+}
+
+/*DARK MODE STYLING*/
+.dark{
+    background-color: rgb(8, 12, 56);
+    color: #ffffff;
+}
+.dark .navbar{
+    background-color: rgb(7, 28, 39);
+}
+
+.dark #home{
+	background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('img/hero-bg.png');
+}
+
+.dark #home #homepage h3 + h2{
+    color: white;
+}
+
+
+/*MEDIA QUERY FOR SCREENS WITH MAXIMUN WIDTH OF 970px WITH MINIMUM WIDTH OF 800px*/
+@media screen and (max-width:970px) {
+    nav #navlogo{
+        font-size: 1rem;
+    }
+    nav ul li a{
+        font-size: .7rem;
+    }
+}
+
+/*MEDIA QUERY FOR SCREENS WITH MAXIMUN WIDTH OF 800px*/
+@media screen and (max-width:800px) {
+
+    .checkbtn{
+        float: right;
+        display: block;
+    }
+    .modebtn2{
+        float: right;
+        display: block;
+    }
+
+    #modebtn{
+        margin-right: 20px;
+        display: none;
+    }
+
+
+    ul{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: #2c3e50;
+        top: 58px;
+        left: -100vw;
+        text-align: center;
+        transition: all .5s;
+    }
+
+
+    nav ul li {
+        display: block;
+        margin-top: 30px;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+    a:hover, a.active{
+        background: none;
+        color: #0082e6;
+        text-decoration: none;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+
+    #home{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        height: 100vh;
+        background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('img/hero-bg.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:1800px 800px;
+    }
+
+    #home #home-text{
+        margin-top: 5%;
+        margin-left: 2%;
+    }
+
+    #home #homeimg {
+        height: 60vh;
+        width: 70vw;
+        margin-left: 50px;
+        align-content: center;
+    }
+}
+
+
+
+
+
+
