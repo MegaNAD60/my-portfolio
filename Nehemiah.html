@@ -14,7 +14,8 @@
 
     <!--AOS ANIMATION LINKS-->
 	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
 
 <style>
 </style>
@@ -29,8 +30,8 @@
             <ul>
                 <li><a href="#" class="active">Home</a></li>
                 <li><a href="#about">About me</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
             <button onclick="modeFunction()" id="modebtn">Toggle mode</button>
@@ -41,11 +42,11 @@
 
         <!--HOME PAGE-->
         <section id="home">
-            <div id="home-text">
+            <div id="home-text" style="line-height: 50px;">
                 <h2>Nehemiah A. Dauda</h2>
-                <h3>I am a <span class="auto-input"></span></h3><br/><br/>
-                <a href="" type="button" class="contact btn">Contact Me</a>
-                <a href="" type="button" class="download btn">Download CV</a>
+                <h3>I am a <span class="auto-input"></span></h3>
+                <a href="#contact" type="button" class="contact btn">Contact Me</a>
+                <a href="Assets/001Nehemiah_Dauda.docx" type="button" class="download btn" download="001Nehemiah_Dauda">Download CV</a>
             </div>
             <img id="homeimg" src="img/mypic1.jpg">
         </section>
@@ -59,10 +60,10 @@
 
                 <article class="about-details">
 
-                    <div data-aos="fade-up" data-aos-duration="2000">
+                    <div data-aos="fade-right" data-aos-duration="1000">
                         <img id="aboutimg" src="img/mypic2.jpg">
                     </div>
-                    <div data-aos="fade-up" data-aos-duration="2000">
+                    <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
                         <p>Hi, I am a professional web app developer, who is based in Abuja. I am a highly talented
                             and very passionate in soft ware development. Certified by Meta as a Front End Preffessional 
                             Developer, I have build and design several websites and my stacks includes as follows.
@@ -100,38 +101,207 @@
         <!--PROJECTS PAGE-->
         <section id="portfolio">
             <h1>Portfolio</h1>
-                <div id="proj"></div>
-            </section>
+
+            <div class="cards">
+
+                <div class="card" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="img/portfolio/django-reservation.png" alt=""><br/><br/>
+                    <h3><b>Reservation site</b></h3><br/>
+                    <p>A reservation app for Little Lemon restuarant using django and django restframework</p><br/>
+                    <a href="https://github.com/MegaNAD60/little-lemon-reservation"><button class="btn github" >Github</button></a>
+                    <a href=""><button class="btn live" style="float:right" disabled>Live</button></a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="img/nad-wears1.png" alt="" ><br/><br/>
+                    <h3><b>Portfolio</b></h3><br/>
+                    <p>Little description about my portfolio</p><br/>
+                    <a href=""><button class="btn github" >Github</button></a>
+                    <a href=""><button class="btn live" style="float:right">Live</button></a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="img/nad-wears1.png" alt="" ><br/><br/>
+                    <h3><b>Portfolio</b></h3><br/>
+                    <p>Little description about my portfolio</p><br/>
+                    <a href=""><button class="btn github" >Github</button></a>
+                    <a href=""><button class="btn live" style="float:right">Live</button></a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="img/nad-wears1.png" alt=""><br/><br/>
+                    <h3><b>Portfolio</b></h3><br/>
+                    <p>Little description about my portfolio</p><br/>
+                    <a href=""><button class="btn github" >Github</button></a>
+                    <a href=""><button class="btn live" style="float:right">Live</button></a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="img/nad-wears1.png" alt=""><br/><br/>
+                    <h3><b>Portfolio</b></h3><br/>
+                    <p>Little description about my portfolio</p><br/>
+                    <a href=""><button class="btn github" >Github</button></a>
+                    <a href=""><button class="btn live" style="float:right">Live</button></a>
+            </div>
+
+            </div>
+
+        </section>
         <!--END OF PROJECTS PAGE-->
 
-            <scetion id="certifications"></scetion>
+            <!--RESUME SECTION-->
+            <section id="resume">
+                <h1>Resume</h1>
 
-        </div>
+                <div class="resume-details">
 
-        <section id="contact"></section>
+                    <div class="bio" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                        <h2>Bio</h2>
+                        <div class="resume-items">
+                            <h3>Nehemiah Agbu Dauda</h3>
+                            <h4>Web App Developer and Designer</h4>
+                            <ul>
+                                <li>Abuja, Nigeria</li>
+                                <li>+2348135307309</li>
+                                <li>nehemiahdauda60@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="education" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                        <h2>Education</h2>
+                        <div class="resume-items">
+                            <h3>B.A History and Diplomatic Studies</h3>
+                            <h4>Federal University Wukari <span>Oct 2014 - Oct 2018</span></h4>
+                        </div>
+                    </div>
+
+                    <div class="certifications" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                        <h2>Certifications</h2>
+                        <div class="resume-items">
+                            <h3 style="font-weight: 100;">Meta Front-End Developer <span>Feb 17, 2023</spantyle=></h3>
+                            <h3 style="font-weight: 100;">Programming in Python<span>Sep 30, 2022</spantyle=></h3>
+                            <h3 style="font-weight: 100;">Django Web Framework<span>Jan 14, 2023</span=></h3>
+                        </div>
+                    </div>
+
+                    <div class="skills" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                        <h2>Skills</h2>
+                        <div class="resume-items">
+                            <h3 style="font-weight: 100;">Full Stack Developer<span>2022 - Present</span></h3>
+                            <h3 style="font-weight: 100;">UI/UX Designer<span>2022 - Present</span></h3>
+                            <h3 style="font-weight: 100;">Graphic Designer<span>2021 - present</span></h3>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--TINY-SLIDER-->
+                <div class="slideshow-container">
+                    <h3 style="color: rgb(13, 145, 145);">CERTIFICATIONS & LICENCES</h3>
+
+                    <div class="slides">
+                        <div class="mySlides fade">
+                            <a href="img/certifications/front-end-developer.png">
+                                <img src="img/certifications/front-end-developer.png">
+                            </a>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <a href="img/certifications/django-web-framework.png">
+                                <img src="img/certifications/django-web-framework.png">
+                            </a>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <a href="img/certifications/advance-react.png">
+                                <img src="img/certifications/advance-react.png">
+                            </a>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <a href="img/certifications/apis.png">
+                                <img src="img/certifications/apis.png">
+                            </a>
+                        </div>
+
+
+                        <div class="mySlides fade">
+                            <a href="img/certifications/full-stack.png">
+                                <img src="img/certifications/full-stack.png">
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div><!--END OF TINY-SLIDER-->
+
+
+            </section>
+            <!--END OF RESUME SECTION-->
+
+            <!--CONTACT SECTION-->
+            <section id="contact" style="text-align: center;">
+                <h1 style="margin: 30px 0; color: rgb(6, 114, 114);">GET IN TOUCH</h1>
+                <div class="contact-details">
+
+                    <div class="contact address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address</h3>
+                        <p>Abuja, Nigeria</p>
+                    </div>
+
+                    <div class="contact call">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call</h3>
+                        <p>+234 8123 5953 48<br>+234 8135 3073 09</p>
+                    </div>
+
+                    <div class="contact email">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>nehemiahdauda60@gmail.com</p>
+                        <p>daudaagbu@gmail.com</p>
+
+                    </div>
+
+                </div>
+				<i><a href="https://www.linkedin.com/in/nehemiah-dauda-525182228" class="fab fa-linkedin"></a></i>
+				<i><a href="https://twitter.com/dauda_nehemiah" class="fab fa-twitter"></a></i>
+				<i><a href="https://www.facebook.com/equity.justice.501" class="fab fa-facebook"></a></i>
+				<i><a href="https://www.instagram.com/nehemiahagbu" class="fab fa-instagram"></a></i>
+				<i><a href="https://wa.me/+2348135307309" class="fab fa-whatsapp"></a></i>
+				<i><a href="https://t.me/NehemiahD" class="fab fa-telegram"></a></i>
+
+            </section>
+            <!--END CONTACT SECTION-->
+
+        </div><!--END OF CONTAINER DIV-->
+
 
     </main>
-    <footer></footer>
+    <footer class="footer" style="text-align: center; padding: 30px 0; color: white; background-color: rgb(20, 29, 48);">
+        <p class="footer-details">copywright &copy <b>Nehemiah A. Dauda</b></p>
+    </footer>
 
 
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><!--aos.js script-->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script><!--typed.js script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script><!--tiny-slider script-->
 
 
 
 
 
     <script>
-/*AOS INITIALIZATION*/
+    /*AOS INITIALIZATION*/
         AOS.init()
 
 
-/*DARK MODE FUNCTION*/
+    /*DARK MODE FUNCTION*/
         function modeFunction(){
             let element = document.body;
             element.classList.toggle("dark")
         }
 
-/*TYPED SCRIPT INITIALIZATION*/
+    /*TYPED SCRIPT INITIALIZATION*/
         var typed = new Typed(".auto-input", {
             strings: ["Web Developer", "UI/UX Designer", "Graphic Designer"],
             typeSpeed: 100,
@@ -139,15 +309,36 @@
             loop: true
         })
 
-        var arrFood = {
-            'name':"Nehemiah",
-            'age': 27,
-            'career': "Web developer"
-        }
+        /*COROUSEL SLIDE*/
+        let slider = tns({
+            container : ".slides",
+            "slideBy" : "1",
+            "speed" : 500,
+            "nav" : false,
+            autoplay : true,
+            controls : false,
+            autoplayButtonOutput : false,
+            responsive:{
+                1600: {
+                    items : 5,
+                    gutter : 20
+                },
+                1024 : {
+                    items : 4,
+                    gutter : 20
+                },
+                768:{
+                    items : 3,
+                    gutter : 20
+                },
+                200:{
+                    items : 2,
+                    gutter : 7
+                }
+            }
+        })
 
-        for(var i=0; i<arrFood.length; i++){
-        document.getElementById('proj').innerHTML = arrFood[i]
-        }
+
     </script>
 </body>
 </html>
