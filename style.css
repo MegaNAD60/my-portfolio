@@ -176,7 +176,6 @@ nav #modebtn:hover{
 }
 
 #about #aboutimg {
-    padding-left: 30px;
     height: 75vh;
     width: 100%;
 }
@@ -531,7 +530,7 @@ nav #modebtn:hover{
 
     #home #home-text{
         margin-top: 40%;
-        margin-left: 15%;
+        margin-left: 20px;
     }
 
     #home #home-text h2{
