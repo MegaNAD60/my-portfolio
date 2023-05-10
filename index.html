@@ -25,7 +25,7 @@
         <!--NAVIGATION BAR-->
         <nav class="navbar">
             <div id="nav-logo">Nehemiah</div>
-            <div class="checkbtn">&#9776</div>
+            <div class="hamburger">&#9776</div>
             <div class="links">
                 <ul class="nav-links">
                     <li class="nav-link"><a href="#" class="active">Home</a></li>
@@ -291,89 +291,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script><!--tiny-slider script-->
 
 
+    <script src="script.js"></script>
 
-
-
-    <script>
-
-
-
-    //AOS INITIALIZATION
-        AOS.init()
-
-
-    //DARK MODE FUNCTION
-/*        function modeFunction(){
-            let element = document.body;
-            element.classList.toggle("dark")
-        }*/
-        const element = document.body
-        const togglebtn = document.getElementById('modebtn')
-        let currentMode = localStorage.getItem('dark')
-
-        togglebtn.addEventListener('click', () => {
-            element.classList.toggle('dark')
-            localStorage.setItem('dark', 'true')
-            dark=localStorage.get
-        })
-
-    /*TYPED SCRIPT INITIALIZATION*/
-        var typed = new Typed(".auto-input", {
-            strings: ["Web Developer", "UI/UX Designer", "Graphic Designer"],
-            typeSpeed: 100,
-            backSpeed: 100,
-            loop: true
-        })
-
-    //COROUSEL SLIDE
-        let slider = tns({
-            container : ".slides",
-            "slideBy" : "1",
-            "speed" : 500,
-            "nav" : false,
-            autoplay : true,
-            controls : false,
-            autoplayButtonOutput : false,
-            responsive:{
-                1600: {
-                    items : 5,
-                    gutter : 20
-                },
-                1024 : {
-                    items : 4,
-                    gutter : 20
-                },
-                768:{
-                    items : 3,
-                    gutter : 20
-                },
-                200:{
-                    items : 2,
-                    gutter : 7
-                }
-            }
-        })
-
-    //SCROLL TOP FUNCTION
-        let mybutton = document.getElementById("myBtn");
-        window.onscroll = function()
-        {scrollFunction()};
-
-        function scrollFunction(){
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-                mybutton.style.display = "block"
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        function topFunction(){
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
-
-    //NAVBAR FUNCTION
-    </script>
 </body>
 </html>

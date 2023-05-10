@@ -44,13 +44,17 @@ h1{
 
 /*NAVIGATION STYLING*/
 
-nav{
+.navbar{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding:10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 	background-color:rgba(6, 101, 209, 0.9);
 	color: #fff;
+    transition: top 0.3s;
 }
 
 nav #nav-logo{
@@ -84,7 +88,7 @@ nav ul li a.active{
     color: rgb(9, 218, 218);
 }
 
-nav .checkbtn{
+nav .hamburger{
     display: none;
 }
 
@@ -108,8 +112,8 @@ nav #modebtn:hover{
 #home{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 20px;
-    height: 80vh;
+    padding: 90px;
+    height: 90vh;
 	background-image:linear-gradient(rgba(0,0,0,0.18),rgba(0,0,0,0.18)),url('img/hero-bg.png');
 	background-position: center;
 	background-repeat: no-repeat;
@@ -151,7 +155,7 @@ nav #modebtn:hover{
 }
 
 #home #homeimg {
-    height: 90%;
+    height: 95%;
     width: 29vw;
     border-radius: 5%;
     margin: 0 auto;
@@ -176,7 +180,7 @@ nav #modebtn:hover{
 }
 
 #about #aboutimg {
-    height: 75vh;
+    height: 85vh;
     width: 100%;
 }
 
@@ -459,7 +463,7 @@ nav #modebtn:hover{
 @media screen and (max-width:800px) {
 
 /*NAVIGATION BAR*/
-    nav .checkbtn{
+    nav .hamburger{
         position: absolute;
         right: 30px;
         display: block;
@@ -472,7 +476,7 @@ nav #modebtn:hover{
         cursor: pointer;
     }
 
-    nav{
+    .navbar{
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem 1rem;
@@ -518,6 +522,8 @@ nav #modebtn:hover{
         grid-template-columns: repeat(1, 1fr);
         max-width: 100vw;
         height: 100vh;
+        padding: 0;
+        margin-top: 50px;
         background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('img/mypic1.jpg');
         background-position: center;
         background-repeat: no-repeat;
@@ -530,7 +536,6 @@ nav #modebtn:hover{
 
     #home #home-text{
         margin-top: 40%;
-        margin-left: 20px;
     }
 
     #home #home-text h2{
