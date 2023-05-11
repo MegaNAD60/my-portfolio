@@ -7,13 +7,10 @@
         element.classList.toggle("dark")
     }*/
     const element = document.body
-    const togglebtn = document.getElementById('modebtn')
-    let currentMode = localStorage.getItem('dark')
+    const togglebtn = document.getElementsByClassName('modebtn')[0]
 
     togglebtn.addEventListener('click', () => {
         element.classList.toggle('dark')
-        localStorage.setItem('dark', 'true')
-        dark=localStorage.get
     })
 
 /*TYPED SCRIPT INITIALIZATION*/
@@ -28,7 +25,7 @@
     let slider = tns({
         container : ".slides",
         "slideBy" : "1",
-        "speed" : 500,
+        "speed" : 900,
         "nav" : false,
         autoplay : true,
         controls : false,
@@ -93,7 +90,12 @@
 //NAVBAR FUNCTION
     const hamburger = document.getElementsByClassName('hamburger')[0]
     const navLink = document.getElementsByClassName('links')[0]
+    const navLinks = document.getElementsByClassName('nav-link')
 
     hamburger.addEventListener('click', () => {
         navLink.classList.toggle('links')
+    })
+
+    navLinks.addEventListener('click', () => {
+        console.log('working')
     })
