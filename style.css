@@ -26,7 +26,7 @@ h1{
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99;
+    z-index: 1;
     border: none;
     outline: none;
     color: white;
@@ -52,7 +52,7 @@ h1{
     position: fixed;
     width: 100%;
     z-index: 1;
-	background-color:rgba(6, 101, 209, 0.9);
+	background-color:rgb(6, 101, 209);
 	color: #fff;
     transition: top 0.3s;
 }
@@ -98,9 +98,6 @@ h1{
     cursor: pointer;
 }
 
-.navbar .modebtn:hover{
-    color: rgb(2, 24, 41);
-}
 
 
 /*HOME PAGE STYLING*/
@@ -488,10 +485,10 @@ h1{
 
     .navbar .nav-links{
         position: absolute;
-        height: 90vh;
-        margin-top: 40px;
-        width: 100%;
-        right: 0;
+        height: 100vh;
+        margin-top: 30px;
+        width: 80%;
+        left: 0;
         display: flex;
         flex-direction: column;
         background-color: rgb(4, 14, 29);
