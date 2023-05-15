@@ -1,19 +1,28 @@
 //GLOBAL QUERY SELECTORS
 const hamburger = document.getElementsByClassName('hamburger')[0]
 const navLink = document.getElementsByClassName('links')[0]
-const navLi = document.querySelectorAll('nav ul li a');
+const navLi = document.getElementsByClassName('nav-link')[0];
 const sections = document.querySelectorAll('section')
 let mybutton = document.getElementById("myBtn");
 var prevScrollpos = window.pageYOffset;
 
+//onclick function when hamburger icon is click
+hamburger.onclick = function(){
+    toggleNav()
+    toggleHamburger()
+}
 
-//MOBILE VIEW NAVBAR TOGGLE
-hamburger.addEventListener('click', () => {
+// FUNCTION TO TOGGLE NAVBAR
+function toggleNav(){
     navLink.classList.toggle('links')
-})
+}
 
+function toggleHamburger(){
+    hamburger.querySelector('i').classList.toggle('fa-bars');
+    hamburger.querySelector('i').classList.toggle('fa-times');
+}
 
-//WINDOW.ONSCROLL FUNCTION
+//WINDOW.ONSCROLL FUNCTION WHEN WEB PAGE IS SCROLLED
 window.onscroll = function(){
     scrollFunction()//scrollFunction call
     navbarFunction()//navbarFunction call

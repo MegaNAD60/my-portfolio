@@ -417,6 +417,15 @@ h1{
     color: rgb(194, 192, 192);
 }
 
+.dark #resume .resume-details .resume-items{
+    border-left: 2px solid #053579;
+  }
+
+.dark #resume .resume-details .resume-items::before {
+    background: #e9e8e8;
+    border: 2px solid #053579;
+  }
+
 .dark #contact .contact-details .contact .fas{
     color: rgb(7, 204, 204);
     background-color: rgba(81, 161, 236, 0.3);
