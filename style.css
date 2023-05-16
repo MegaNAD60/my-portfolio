@@ -234,6 +234,15 @@ h1{
     background-color: rgba(6, 101, 209, 0.9);
 }
 
+#portfolio .btn:disabled{
+    color: #999;
+    border: 1px solid #999;
+}
+
+#portfolio .btn:hover:disabled{
+    background-color: white;
+}
+
 /*RESUME SECTION STYLING*/
 
 #resume{
@@ -349,7 +358,7 @@ h1{
     border-radius: 50%;
     padding: 10px;
     margin: 10px 0;
-    font-size: 30px;
+    font-size: 20px;
     text-decoration: none;
 }
 
@@ -467,6 +476,10 @@ h1{
 /*MEDIA QUERY FOR SCREENS WITH MAXIMUN WIDTH OF 800px*/
 
 @media screen and (max-width:800px) {
+
+    #myBtn{
+        font-size: 15px;
+    }
 
 /*NAVIGATION BAR*/
 

@@ -1,33 +1,46 @@
-//GLOBAL QUERY SELECTORS
 const hamburger = document.getElementsByClassName('hamburger')[0]
 const navLink = document.getElementsByClassName('links')[0]
-const navLi = document.getElementsByClassName('nav-link')[0];
+const navLi = document.getElementsByClassName('nav-link');
 const sections = document.querySelectorAll('section')
-let mybutton = document.getElementById("myBtn");
+const mybutton = document.getElementById("myBtn");
+const element = document.body
+const togglebtn = document.getElementsByClassName('modebtn')[0]
 var prevScrollpos = window.pageYOffset;
 
-//onclick function when hamburger icon is click
-hamburger.onclick = function(){
+
+//FUNCTION WHEN HAMBURGER IS CLICKED
+hamburger.addEventListener('click', () => {
     toggleNav()
     toggleHamburger()
+})
+
+
+//LOOP THROUGH EACH li AND FUNCTION TO TOGGLE NAV AND HAMBURGER
+for (var i=0; i<navLi.length; i++){
+    navLi[i].addEventListener('click', () => {
+        toggleNav()
+        toggleHamburger()
+    })
 }
+
 
 // FUNCTION TO TOGGLE NAVBAR
 function toggleNav(){
     navLink.classList.toggle('links')
 }
 
+//FUNCTION TO TOGGLE HAMBURGER ICON
 function toggleHamburger(){
     hamburger.querySelector('i').classList.toggle('fa-bars');
     hamburger.querySelector('i').classList.toggle('fa-times');
 }
 
-//WINDOW.ONSCROLL FUNCTION WHEN WEB PAGE IS SCROLLED
-window.onscroll = function(){
-    scrollFunction()//scrollFunction call
-    navbarFunction()//navbarFunction call
-    activeScrollFunction()//active function call
-}
+//WINDOW FUNCTION WHEN WEB PAGE IS SCROLLED
+window.addEventListener('scroll', () => {
+    scrollFunction()
+    navbarFunction()
+    activeScrollFunction()
+})
 
 
 //TOP FUNCTION
@@ -60,56 +73,67 @@ function scrollFunction(){
 }
 
 
-//FUNCTION FOR ACTIVE NAV LINKS
+//FUNCTION FOR ACTIVE NAV LINKS WHEN SCROLLED
 function activeScrollFunction(){
-    let current = '';
+    var scrollPosition = document.documentElement.scrollTop || document.body;
+
     sections.forEach(section => {
-        let sectionTop = section.offsetTop;
-        if(scrollY >= sectionTop){
-            current = section.getAttribute('id')
+        if(scrollPosition >= section.offsetTop
+            &&
+            scrollPosition < section.offsetTop + section.offsetHeight){
+            var currentId = section.attributes.id.value;
+            removeActive();
+            addActive(currentId)
         }
     })
-    navLi.forEach(li => {
+}
+
+//REMOVE ACTIVE CLASS FUNCTION
+var removeActive = function (){
+    document.querySelectorAll('nav a').forEach((li) => {
         li.classList.remove('active')
-        document.querySelector('nav ul li a[href*= '+ current +']').classList.add('active');
     })
+}
+
+//ADD ACTIVE CLASS FUNCTION
+var addActive = function(id){
+    console.log(id);
+    var selector = `nav a[href="#${id}"]`;
+    document.querySelector(selector).classList.add('active')
 }
 
 
 //DARK MODE FUNCTION
-    const element = document.body
-    const togglebtn = document.getElementsByClassName('modebtn')[0]
+togglebtn.addEventListener('click', () => {
+    togglebtn.querySelector('i').classList.toggle('fa-sun');
+    togglebtn.querySelector('i').classList.toggle('fa-moon');
+    element.classList.toggle('dark')
 
-    togglebtn.addEventListener('click', () => {
-        togglebtn.querySelector('i').classList.toggle('fa-sun');
-        togglebtn.querySelector('i').classList.toggle('fa-moon');
-        element.classList.toggle('dark')
+    var set;
 
-        var set;
-
-        if(element.classList.contains('dark')){
-            console.log('dark mode')
-            set = "DARK"
-        }else{
-            console.log('light mode')
-            set = "LIGHT"
-        }
-
-        localStorage.setItem('mode', JSON.stringify(set))
-    })
-
-    let GetMode = JSON.parse(localStorage.getItem('mode'))
-    if(GetMode === "DARK"){
-        element.classList = 'dark'
+    if(element.classList.contains('dark')){
+        console.log('dark mode')
+        set = "DARK"
+    }else{
+        console.log('light mode')
+        set = "LIGHT"
     }
 
-    element.addEventListener('load', () => {
-        if(element.classList.contains('dark')){
-            togglebtn.querySelector('i').classList.add('fa-sun');
-        }else{
-            togglebtn.querySelector('i').classList.add('fa-moon');
-        }
-    })
+    localStorage.setItem('mode', JSON.stringify(set))
+})
+
+let GetMode = JSON.parse(localStorage.getItem('mode'))
+if(GetMode === "DARK"){
+    element.classList = 'dark'
+}
+
+element.addEventListener('load', () => {
+    if(element.classList.contains('dark')){
+        togglebtn.querySelector('i').classList.add('fa-sun');
+    }else{
+        togglebtn.querySelector('i').classList.add('fa-moon');
+    }
+})
 
 
 //AOS INITIALIZATION
