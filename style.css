@@ -88,6 +88,11 @@ h1{
     color: rgb(9, 218, 218);
 }
 
+.navbar ul li a .fas{
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
 .navbar .hamburger{
     display: none;
 }
@@ -414,6 +419,13 @@ h1{
     border-color: #0082e6;
 }
 
+.dark #portfolio .btn:hover:disabled{
+    color: #999;
+    border: 1px solid #999;
+    background-color: rgb(18, 19, 26);
+}
+
+
 .slideshow-container h3{
     color: rgb(7, 204, 204);
 }
@@ -522,7 +534,7 @@ h1{
 
     .navbar .nav-links .nav-link{
         text-align: center;
-        padding: 1rem 1rem;
+        padding: 1.5rem 1.5rem;
     }
 
     .navbar ul li a{
@@ -532,6 +544,7 @@ h1{
     .navbar ul li a.active{
         color: aqua;
     }
+
 
 
 

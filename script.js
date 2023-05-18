@@ -127,6 +127,8 @@ if(GetMode === "DARK"){
     element.classList = 'dark'
 }
 
+
+//FUNCTION FOR MODE ICON
 element.addEventListener('load', () => {
     if(element.classList.contains('dark')){
         togglebtn.querySelector('i').classList.add('fa-sun');
