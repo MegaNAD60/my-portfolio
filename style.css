@@ -212,6 +212,7 @@ h1{
 #portfolio .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: baseline;
     gap: 20px;
 }
 
@@ -239,14 +240,6 @@ h1{
     background-color: rgba(6, 101, 209, 0.9);
 }
 
-#portfolio .btn:disabled{
-    color: #999;
-    border: 1px solid #999;
-}
-
-#portfolio .btn:hover:disabled{
-    background-color: white;
-}
 
 /*RESUME SECTION STYLING*/
 
