@@ -510,6 +510,10 @@ h1{
         cursor: pointer;
     }
 
+    .navbar .links{
+        display: none;
+    }
+
     .navbar .nav-links{
         position: absolute;
         height: 100vh;
@@ -519,10 +523,12 @@ h1{
         display: flex;
         flex-direction: column;
         background-color: rgb(4, 14, 29);
+        animation: navAnimation 1s ease;
     }
 
-    .navbar .links{
-        display: none;
+    @keyframes navAnimation{
+        from { left: -70% }
+        to { left: 0px }
     }
 
     .navbar .nav-links .nav-link{
