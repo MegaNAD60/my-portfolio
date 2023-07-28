@@ -1,3 +1,5 @@
+//CLASS AND ID SELECTOR
+const navbar = document.querySelector('.navbar')
 const hamburger = document.getElementsByClassName('hamburger')[0]
 const navLink = document.getElementsByClassName('links')[0]
 const navLi = document.getElementsByClassName('nav-link');
@@ -8,7 +10,7 @@ const togglebtn = document.getElementsByClassName('modebtn')[0]
 var prevScrollpos = window.pageYOffset;
 
 
-//FUNCTION WHEN HAMBURGER IS CLICKED
+//HAMBURGER ONCLICKED FUNCTION
 hamburger.addEventListener('click', () => {
     toggleNav()
     toggleHamburger()
@@ -35,10 +37,11 @@ function toggleHamburger(){
     hamburger.querySelector('i').classList.toggle('fa-times');
 }
 
-//WINDOW FUNCTION WHEN WEB PAGE IS SCROLLED
+//WINDOW ONSCROLL FUNCTION
 window.addEventListener('scroll', () => {
     scrollFunction()
     navbarFunction()
+    navbarBackground()
     activeScrollFunction()
 })
 
@@ -50,20 +53,29 @@ function topFunction(){
 }
 
 
-//FUNCTION FOR NAVIGATION BAR TO HIDE WHEN SCROLL DOWN AND TO SHOW WHEN SCROLL UP
+//NAVIGATION BAR FUNCTION WHEN SCROLLED
 function navbarFunction(){
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos){
-        document.getElementsByClassName('navbar')[0].style.top = "0"
+        navbar.style.top = "0"
     }else{
-        document.getElementsByClassName('navbar')[0].style.top = "-60px";
+        navbar.style.top = "-60px";
     }
     prevScrollpos = currentScrollPos
 
 }
 
 
-// FUNCTION TO ENABLE SCROLL TO TOP BUTTON TO SHOW WHEN SCROLL ABOVE 20PX AND INVISIBLE WHEN THE BODY IS BELOW 20PX
+//FUNCTION TO UPDATE NAVBAR BACKGROUND COLOR
+function navbarBackground(){
+    if(window.scrollY > 20){
+        navbar.classList.add('navbar-scroll')
+    } else{
+        navbar.classList.remove('navbar-scroll')
+    }
+}
+
+// FUNCTION TO UPDATE SCROLLTOP BUTTON
 function scrollFunction(){
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
         mybutton.style.display = "block"
@@ -73,7 +85,7 @@ function scrollFunction(){
 }
 
 
-//FUNCTION FOR ACTIVE NAV LINKS WHEN SCROLLED
+//FUNCTION FOR ACTIVE NAV LINKS
 function activeScrollFunction(){
     var scrollPosition = document.documentElement.scrollTop || document.body;
 
