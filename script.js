@@ -75,7 +75,7 @@ function navbarBackground(){
     }
 }
 
-// FUNCTION TO UPDATE SCROLLTOP BUTTON
+// FUNCTION TO DISPLAY SCROLLTOP BUTTON
 function scrollFunction(){
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
         mybutton.style.display = "block"
@@ -156,12 +156,19 @@ AOS.init()
 
 //TYPED SCRIPT INITIALIZATION
 var typed = new Typed(".auto-input", {
-    strings: ["Web Developer", "UI/UX Designer", "Graphic Designer"],
+    strings: ["Web Developer", "Technical Writer", "UI/UX Designer", "Graphic Designer"],
     typeSpeed: 100,
     backSpeed: 100,
     loop: true
 })
 
+//TYPED SCRIPT INITIALIZATION MOBILE
+var typed = new Typed(".auto-input-mobile", {
+    strings: ["Web Developer", "Technical Writer", "UI/UX Designer", "Graphic Designer"],
+    typeSpeed: 100,
+    backSpeed: 100,
+    loop: true
+})
 
 //COROUSEL SLIDE
 let slider = tns({
