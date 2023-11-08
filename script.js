@@ -77,8 +77,8 @@ function navbarBackground(){
 
 // FUNCTION TO DISPLAY SCROLLTOP BUTTON
 function scrollFunction(){
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-        mybutton.style.display = "block"
+    if (window.scrollY > 20){
+        mybutton.style.display = "inline"
     } else {
         mybutton.style.display = "none";
     }
@@ -142,12 +142,15 @@ if(GetMode === "DARK"){
 
 //FUNCTION FOR MODE ICON
 element.addEventListener('load', () => {
+    var set;
     if(element.classList.contains('dark')){
-        togglebtn.querySelector('i').classList.add('fa-sun');
+        set = togglebtn.querySelector('i').classList.add('fa-sun');
     }else{
-        togglebtn.querySelector('i').classList.add('fa-moon');
+        set = togglebtn.querySelector('i').classList.add('fa-moon');
     }
+    localStorage.setItem('icon', JSON.stringify(set))
 })
+
 
 
 //AOS INITIALIZATION
