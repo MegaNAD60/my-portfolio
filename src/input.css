@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .card-wrapper {
+        @apply relative bg-gradient-to-b from-slate-700 to-slate-800 bg-transparent rounded-2xl overflow-hidden
+    }
+
+    .card-wrapper::before {
+        background: conic-gradient(rgba(10, 130, 151, 0.4) 0deg,
+                rgba(139, 182, 255, 0.4) 0deg,
+                transparent 100deg);
+        @apply absolute h-[150%] w-[150%] left-[-25%] top-[-25%] content-[''] animate-border-spin;
+    }
+
+    .card-content {
+        @apply absolute w-[calc(100%-20px)] h-[calc(100%-20px)] top-[4px] left-[4px] bg-gradient-to-b from-slate-800 to-slate-900 bg-transparent rounded-2xl
+    }
+
+    .resume-items {
+        @apply relative pt-0 pr-0 pb-[20px] pl-[40px] mt-[-2px] border-l-[2px] border-solid border-[#1f5297]
+    }
+
+    .resume-items::before {
+        @apply absolute content-[''] w-[16px] h-[16px] rounded-[50px] left-[-9px] top-0 bg-white border border-[#1f5297]
+    }
+
+    .slides {
+        @apply flex justify-center items-center h-[200px]
+    }
+
+    .slides img {
+        @apply w-[50%] h-[15vh]
+    }
+}
+

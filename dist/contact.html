@@ -1,0 +1,276 @@
+<html lang="en" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slanted Hero Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<style>
+  /* Mobile slant - bottom of image */
+  @media (max-width: 767px) {
+    .slanted-mobile::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: white;
+      transform: skewY(-4deg);
+      z-index: 1;
+    }
+  }
+
+  /* Desktop slant - left side of image */
+  @media (min-width: 768px) {
+    .slanted-right::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -40px;
+      width: 80px;
+      height: 100%;
+      background-color: white;
+      transform: skewX(-12deg);
+      z-index: 10;
+    }
+  }
+</style>
+</head>
+
+<body class="m-0 p-0">
+
+    <!-- Navbar -->
+    <nav class="bg-green-200 px-6 py-4 flex items-center justify-between relative z-50"
+        x-data="{ mobileOpen: false, darkMode: false }" :class="{ 'dark': darkMode }">
+
+        <!-- Logo -->
+        <div class="text-xl font-bold">MyLogo</div>
+
+        <!-- Nav Links (Desktop) -->
+        <div class="hidden md:flex space-x-6">
+            <a href="#home" class="hover:text-green-800">Home</a>
+            <a href="#about" class="hover:text-green-800">About</a>
+            <a href="#services" class="hover:text-green-800">Services</a>
+            <a href="#contact" class="hover:text-green-800">Contact</a>
+        </div>
+
+        <!-- Dark Mode Switch -->
+        <div class="hidden md:flex items-center space-x-2">
+            <!-- Toggle Switch -->
+            <label class="cursor-pointer flex items-center">
+                <span class="text-sm">🌞</span>
+                <input type="checkbox" class="ml-2 hidden" x-model="darkMode" />
+                <div class="w-10 h-5 bg-gray-300 rounded-full p-1 flex items-center"
+                    :class="darkMode ? 'justify-end bg-gray-600' : 'justify-start'">
+                    <div class="bg-white w-4 h-4 rounded-full shadow-md transition-transform duration-300"></div>
+                </div>
+                <span class="text-sm ml-2">🌙</span>
+            </label>
+        </div>
+
+        <!-- Hamburger (Mobile) -->
+        <button class="md:hidden z-50" @click="mobileOpen = !mobileOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Slide-in Mobile Menu -->
+        <div class="fixed top-0 left-0 h-screen w-4/5 bg-green-200 shadow-lg p-6 space-y-6 flex flex-col md:hidden transform transition-transform duration-300"
+            :class="{ '-translate-x-full': !mobileOpen, 'translate-x-0': mobileOpen }">
+            <!-- Close button inside -->
+            <button class="self-end mb-4" @click="mobileOpen = false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="#home" class="text-lg hover:text-green-800">Home</a>
+            <a href="#about" class="text-lg hover:text-green-800">About</a>
+            <a href="#services" class="text-lg hover:text-green-800">Services</a>
+            <a href="#contact" class="text-lg hover:text-green-800">Contact</a>
+
+            <!-- Dark Mode Switch in Mobile Menu -->
+            <div class="mt-6">
+                <!-- Toggle Switch -->
+                <label class="cursor-pointer flex items-center">
+                    <span class="text-sm">🌞</span>
+                    <input type="checkbox" class="ml-2 hidden" x-model="darkMode" />
+                    <div class="w-10 h-5 bg-gray-300 rounded-full p-1 flex items-center"
+                        :class="darkMode ? 'justify-end bg-gray-600' : 'justify-start'">
+                        <div class="bg-white w-4 h-4 rounded-full shadow-md transition-transform duration-300"></div>
+                    </div>
+                    <span class="text-sm ml-2">🌙</span>
+                </label>
+            </div>
+        </div>
+
+    </nav>
+
+
+
+<section class="flex flex-col md:flex-row min-h-screen w-full overflow-hidden">
+
+  <!-- Right Side (Image) -->
+    <div class="bg-blue-200 flex-1 flex justify-center items-center p-8 relative slanted-right z-0 md:order-2">
+      <img src="img/mypic4.png" alt="My Photo" class="w-full max-w-sm h-auto object-contain rounded-lg z-10" />
+    </div>
+
+  <!-- Left Side (Text) -->
+  <div class="bg-white flex-1 flex flex-col justify-center items-start px-8 md:px-16 py-12 relative z-10">
+    <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+      Nehemiah Agbu Dauda
+    </h1>
+    <h3 class="mb-6 text-xl font-semibold">I am a <span class="auto-input"></span></h3>
+    <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-md">
+      Build beautiful, responsive websites using Tailwind CSS — fast and flexible.
+    </p>
+    <a href="#about"
+      class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition">
+      Get Started
+    </a>
+  </div>
+
+</section>
+
+
+<section id="automation-services" class="max-w-[1240px] mx-auto px-4 py-16">
+  <!-- Section Heading -->
+  <h2 class="text-4xl font-extrabold text-[#5cadea] text-center mb-12">Workflow Automations</h2>
+
+  <!-- Services Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+    <!-- Automation Setup -->
+    <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 p-6 text-center" data-aos="fade-up">
+      <img src="img/icons/automation-gear.png" alt="Automation Setup" class="w-12 h-12 mx-auto mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Custom Workflow Setup</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        I create tailored automation flows using tools like n8n, Zapier, and Make to eliminate repetitive tasks and increase efficiency.
+      </p>
+      <a href="#contact" class="inline-block bg-[#5cadea] text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Get Started</a>
+    </div>
+
+    <!-- Data Syncing & Integration -->
+    <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 p-6 text-center" data-aos="fade-up">
+      <img src="img/icons/database-sync.png" alt="Data Sync" class="w-12 h-12 mx-auto mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Sync & Integration</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Seamlessly connect platforms like Airtable, Google Sheets, APIs, CRMs, and more to ensure real-time data updates across your apps.
+      </p>
+      <a href="#contact" class="inline-block bg-[#5cadea] text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Hire Me</a>
+    </div>
+
+    <!-- AI-Powered Automations -->
+    <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 p-6 text-center" data-aos="fade-up">
+      <img src="img/icons/ai-brain.png" alt="AI Automation" class="w-12 h-12 mx-auto mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">AI-Powered Workflows</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Combine automation with AI tools like ChatGPT and Gemini to auto-respond, generate content, analyze data, and optimize decision-making.
+      </p>
+      <a href="#contact" class="inline-block bg-[#5cadea] text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Automate Now</a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="portfolio" class="max-w-[1240px] mx-auto px-4 py-16">
+  <!-- Heading -->
+  <h2 class="text-4xl font-extrabold text-[#5cadea] text-center mb-12">Portfolio</h2>
+
+  <!-- Portfolio Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+    <!-- 1. Django Reservation -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/django-reservation.png" alt="Django Reservation" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Django Reservation App</h3>
+        <p class="text-gray-600 text-sm mb-4">Room booking system with user roles, calendar, and admin management.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+    <!-- 2. GetLinked Clone -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/getlinked.png" alt="GetLinked" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">GetLinked Hackathon Clone</h3>
+        <p class="text-gray-600 text-sm mb-4">A responsive, animated hackathon landing page built with Tailwind.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+    <!-- 3. E-commerce Site -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/e-commerce.png" alt="E-commerce" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-commerce Website</h3>
+        <p class="text-gray-600 text-sm mb-4">Complete e-commerce frontend with product filters, cart, and checkout.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+    <!-- 4. NAD Wears Template -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/nad-wears-template.png" alt="NAD Wears" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">NAD Wears Template</h3>
+        <p class="text-gray-600 text-sm mb-4">Fashion brand website template with modern layout and responsive design.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+    <!-- 5. NAD Tech -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/nad-tech.png" alt="NAD Tech" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">NAD Tech Agency</h3>
+        <p class="text-gray-600 text-sm mb-4">Agency site showcasing tech services, team members, and contact form.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+    <!-- 6. NAD Store -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/nad-store.png" alt="NAD Store" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">NAD Online Store</h3>
+        <p class="text-gray-600 text-sm mb-4">Simple e-commerce storefront with dynamic product listings and categories.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+    <!-- 7. React Portfolio -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/react-portfolio.png" alt="React Portfolio" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">React Portfolio Site</h3>
+        <p class="text-gray-600 text-sm mb-4">Personal portfolio built in React with routes, animations, and scroll effects.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+    <!-- 8. E-commerce 2 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300" data-aos="fade-up">
+      <img src="img/portfolio/e-commerce.png" alt="E-commerce Site" class="w-full h-56 object-cover" />
+      <div class="p-5">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Storefront UI Project</h3>
+        <p class="text-gray-600 text-sm mb-4">An alternate UI approach to an e-commerce site with refined color palette.</p>
+        <a href="#" class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View Project</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+</body>
+
+</html>

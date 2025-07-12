@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nehemiah Projects</title>
+
+    <!-- Include Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Include Alpine CDN -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!--CSS STYLE-->
+    <link rel="stylesheet" href="./output.css">
+
+
+    <!--FONTAWESOME LINKS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!--AOS ANIMATION LINKS-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+
+    <style>
+    </style>
+</head>
+
+<body class="m-0 p-0 bg-white dark:bg-black">
+
+    <!--https://preview.colorlib.com/#rezume         https://www.youtube.com/watch?v=fdLh5pg0nG0-->
+
+    <button onclick="topFunction()" id="myBtn"
+        class="fixed bottom-[2px] right-[30px] z-10 text-white bg-[teal] rounded-lg p-3 cursor-pointer">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <header class="bg-blue-400">
+
+        <!-- Navbar -->
+        <nav class="bg-blue-400 text-white px-6 py-4 flex items-center justify-between relative z-50"
+            x-data="{ mobileOpen: false, darkMode: false }" :class="{ 'dark': darkMode }">
+
+            <!-- Logo -->
+            <div class="text-xl font-bold">MyLogo</div>
+
+            <!-- Nav Links (Desktop) -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="text-lg hover:text-green-800"><i class="fas fa-home"></i><span
+                        class="ml-2">Home</span></a>
+                <a href="#about" class="text-lg hover:text-green-800"><i class="fas fa-user"></i><span
+                        class="ml-2">About</span></a>
+                <a href="#services" class="text-lg hover:text-green-800">Services</a>
+                <a href="#portfolio" class="text-lg hover:text-green-800"><i class="fas fa-briefcase"></i><span
+                        class="ml-2">Portfolio</span></a>
+                <a href="#resume" class="text-lg hover:text-green-800"><i class="fas fa-address-card"></i><span
+                        class="ml-2">Resume</span></a>
+                <a href="#" class="text-lg hover:text-green-800"><i class="fas fa-blog"></i><span
+                        class="ml-2">Blogs</span></a>
+                <a href="#contact" class="text-lg hover:text-green-800"><i class="fas fa-address-book"></i><span
+                        class="ml-2">Contact</span></a>
+            </div>
+
+            <!-- Dark Mode Switch -->
+            <div class="hidden md:flex items-center space-x-2">
+                <label class="cursor-pointer flex items-center">
+                    <span class="text-sm">🌞</span>
+                    <input type="checkbox" class="ml-2 toggle-checkbox hidden" x-model="darkMode" />
+                    <div class="w-10 h-5 bg-gray-300 rounded-full p-1 flex items-center"
+                        :class="darkMode ? 'justify-end bg-gray-600' : 'justify-start'">
+                        <div class="bg-white w-4 h-4 rounded-full shadow-md transition-transform duration-300"></div>
+                    </div>
+                    <span class="text-sm ml-2">🌙</span>
+                </label>
+            </div>
+
+            <!-- Hamburger (Mobile) -->
+            <button class="md:hidden z-50" @click="mobileOpen = !mobileOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Slide-in Mobile Menu -->
+            <div class="fixed top-0 left-0 h-screen w-4/5 bg-blue-400 shadow-lg p-6 space-y-6 flex flex-col md:hidden transform transition-transform duration-300"
+                :class="{ '-translate-x-full': !mobileOpen, 'translate-x-0': mobileOpen }">
+                <!-- Close button inside -->
+                <button class="self-end mb-4" @click="mobileOpen = false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <a href="#home" class="text-lg hover:text-green-800">Home</a>
+                <a href="#about" class="text-lg hover:text-green-800">About</a>
+                <a href="#services" class="text-lg hover:text-green-800">Services</a>
+                <a href="#portfolio" class="text-lg hover:text-green-800">Portfolio</a>
+                <a href="#resume" class="text-lg hover:text-green-800">Resume</a>
+                <a href="#" class="text-lg hover:text-green-800">Blogs</a>
+                <a href="#contact" class="text-lg hover:text-green-800">Contact</a>
+
+                <!-- Dark Mode Switch in Mobile Menu -->
+                <div class="mt-6">
+                    <label class="cursor-pointer flex items-center">
+                        <span class="text-sm">🌞</span>
+                        <input type="checkbox" class="ml-2 hidden" x-model="darkMode" />
+                        <div class="w-10 h-5 bg-gray-300 rounded-full p-1 flex items-center"
+                            :class="darkMode ? 'justify-end bg-gray-600' : 'justify-start'">
+                            <div class="bg-white w-4 h-4 rounded-full shadow-md transition-transform duration-300">
+                            </div>
+                        </div>
+                        <span class="text-sm ml-2">🌙</span>
+                    </label>
+                </div>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+    <main>
+        <!-- Hero Section -->
+        <section class="flex flex-col md:flex-row min-h-screen w-full overflow-hidden">
+
+            <!-- Right Side (Image): Top on mobile, Right on desktop -->
+            <div class="bg-blue-200 flex-1 flex justify-center items-center p-8 relative slanted-right z-0
+              clip-slant-mobile md:order-2">
+                <img src="img/mypic4.png" alt="My Photo"
+                    class="w-full max-w-lg h-auto object-contain rounded-lg z-10" />
+            </div>
+
+            <!-- Left Side (Text) -->
+            <div class="bg-white flex-1 flex flex-col justify-center items-start px-8 md:px-16 py-12 relative z-10">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+                    Nehemiah Agbu Dauda
+                </h1>
+                <h3 class="mb-6 text-xl font-semibold">I am <span class="auto-input"></span></h3>
+                <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-md">
+                    I will build beautiful, responsive websites for your business, portfolio, and e-commerce set-up.
+                </p>
+                <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-md">
+                    I will also automate your workflows using powerful automation tools.
+                </p>
+                <a href="#about"
+                    class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition">
+                    Get Started
+                </a>
+            </div>
+
+        </section>
+        <!--SKILL BAR SECTION-->
+
+
+        <section class="max-w-[1240px] ml-auto mr-auto p-2">
+            <h2 class="font-bold text-[2.5rem] text-[#5cadea] my-[20px]">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-8 py-10" x-data>
+
+                <!-- Skill 1: HTML -->
+                <div class="relative w-32 h-32" x-data="{ progress: 90 }" x-intersect.once="progress = 90">
+                    <svg class="transform -rotate-90" width="100%" height="100%" viewBox="0 0 100 100">
+                        <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="40"
+                            cx="50" cy="50" />
+                        <circle class="text-blue-600 transition-all duration-1000 ease-out" stroke-width="10"
+                            stroke-dasharray="251.2" :stroke-dashoffset="251.2 - (251.2 * progress / 100)"
+                            stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center text-xl font-bold text-blue-600">
+                        <span x-text="`${progress}%`"></span>
+                    </div>
+                    <p class="text-center mt-2 text-sm font-medium">HTML</p>
+                </div>
+
+                <!-- Skill 2: CSS -->
+                <div class="relative w-32 h-32" x-data="{ progress: 90 }" x-intersect.once="progress = 80">
+                    <svg class="transform -rotate-90" width="100%" height="100%" viewBox="0 0 100 100">
+                        <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="40"
+                            cx="50" cy="50" />
+                        <circle class="text-green-600 transition-all duration-1000 ease-out" stroke-width="10"
+                            stroke-dasharray="251.2" :stroke-dashoffset="251.2 - (251.2 * progress / 100)"
+                            stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center text-xl font-bold text-green-600">
+                        <span x-text="`${progress}%`"></span>
+                    </div>
+                    <p class="text-center mt-2 text-sm font-medium">CSS</p>
+                </div>
+
+                <!-- Skill 3: JavaScript -->
+                <div class="relative w-32 h-32" x-data="{ progress: 75 }" x-intersect.once="progress = 70">
+                    <svg class="transform -rotate-90" width="100%" height="100%" viewBox="0 0 100 100">
+                        <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="40"
+                            cx="50" cy="50" />
+                        <circle class="text-yellow-500 transition-all duration-1000 ease-out" stroke-width="10"
+                            stroke-dasharray="251.2" :stroke-dashoffset="251.2 - (251.2 * progress / 100)"
+                            stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center text-xl font-bold text-yellow-500">
+                        <span x-text="`${progress}%`"></span>
+                    </div>
+                    <p class="text-center mt-2 text-sm font-medium">JavaScript</p>
+                </div>
+
+                <!-- Skill 4: Tailwind -->
+                <div class="relative w-32 h-32" x-data="{ progress: 80 }" x-intersect.once="progress = 75">
+                    <svg class="transform -rotate-90" width="100%" height="100%" viewBox="0 0 100 100">
+                        <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="40"
+                            cx="50" cy="50" />
+                        <circle class="text-purple-600 transition-all duration-1000 ease-out" stroke-width="10"
+                            stroke-dasharray="251.2" :stroke-dashoffset="251.2 - (251.2 * progress / 100)"
+                            stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center text-xl font-bold text-purple-600">
+                        <span x-text="`${progress}%`"></span>
+                    </div>
+                    <p class="text-center mt-2 text-sm font-medium">WordPress</p>
+                </div>
+
+                <!-- Skill 5: React -->
+                <div class="relative w-32 h-32" x-data="{ progress: 90 }" x-intersect.once="progress = 65">
+                    <svg class="transform -rotate-90" width="100%" height="100%" viewBox="0 0 100 100">
+                        <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="40"
+                            cx="50" cy="50" />
+                        <circle class="text-red-500 transition-all duration-1000 ease-out" stroke-width="10"
+                            stroke-dasharray="251.2" :stroke-dashoffset="251.2 - (251.2 * progress / 100)"
+                            stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center text-xl font-bold text-red-500">
+                        <span x-text="`${progress}%`"></span>
+                    </div>
+                    <p class="text-center mt-2 text-sm font-medium">N8N Automation</p>
+                </div>
+
+            </div>
+        </section>
+        <!--END OF SKILL BAR SECTION-->
+
+
+        <!--ABOUT PAGE-->
+        <section id="about" class="max-w-[1240px] mx-auto px-4 py-12">
+            <!-- Heading -->
+            <h2 class="text-4xl font-extrabold text-[#5cadea] text-center mb-12">About Me</h2>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+                <!-- Image Card -->
+                <div class="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-2xl shadow-lg group">
+                    <img src="img/mypic-edit.jpeg" alt="About Me Photo"
+                        class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition duration-500" />
+                </div>
+
+                <!-- Text Content -->
+                <div class="space-y-6 text-gray-700 " data-aos="fade-up" data-aos-duration="1000">
+
+                    <!-- About Text -->
+                    <div>
+                        <p class="text-lg leading-relaxed">
+                            Hi, I’m <span class="font-semibold text-gray-900">Nehemiah A. Dauda</span>, a <span
+                                class="text-[#5cadea] font-medium">dedicated and prefessional web developer</span> with
+                            a passion for <span class="italic">building custom and responsive websites, and automation
+                                of workflows</span>. With over <span class="font-semibold">4
+                                years</span> of experience in the industry, I've had the privilege of contributing to a
+                            variety of impactful projects.
+                        </p>
+                        <p class="mt-4 text-lg">
+                            My strengths lie in <span class="text-[#5cadea]">[key skills]</span> and I’m committed to
+                            delivering <span class="italic">[what you provide or care about]</span>. Outside of work, I
+                            enjoy <span class="italic">[personal hobbies]</span>. Let's connect and create something
+                            meaningful!
+                        </p>
+
+                    </div>
+
+                    <!-- Programming Stack -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-[#148af8] mb-4">Programming Stack</h3>
+                        <div class="grid grid-cols-2 gap-4 text-gray-800">
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>HTML</li>
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>Bootstrap</li>
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>React</li>
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>Django</li>
+                            </ul>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>CSS</li>
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>JavaScript</li>
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>Python</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Programming Stack -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-[#148af8] mb-4">Automations Tools</h3>
+                        <div class="grid grid-cols-2 gap-4 text-gray-800">
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>N8N</li>
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>Zapier</li>
+                            </ul>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-check-double text-[#5cadea] mr-2"></i>Make.com</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--END OF ABOUT PAGE-->
+
+        <!--SERVICES SECTION-->
+
+        <section id="services" class="max-w-[1240px] mx-auto px-4 py-16">
+            <!-- Section Heading -->
+            <h2 class="text-4xl font-extrabold text-[#5cadea] text-center mb-12">Services</h2>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 p-6 text-center"
+                    data-aos="fade-up">
+                    <img src="img/icons/web-programming.png" alt="Web Development" class="w-12 h-12 mx-auto mb-4" />
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Web Development</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        I create responsive, fast, and scalable websites using modern tools and best practices, ensuring
+                        seamless user experience across devices.
+                    </p>
+                    <a href="#contact"
+                        class="inline-block bg-[#5cadea] text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Hire
+                        Me</a>
+                </div>
+
+                <!-- Automation Setup -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 p-6 text-center"
+                    data-aos="fade-up">
+                    <img src="img/icons/automation-gear.png" alt="Automation Setup" class="w-12 h-12 mx-auto mb-4" />
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Custom Workflow Setup</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        I create tailored automation flows using tools like n8n, Zapier, and Make to eliminate
+                        repetitive tasks and increase efficiency.
+                    </p>
+                    <a href="#contact"
+                        class="inline-block bg-[#5cadea] text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Get
+                        Started</a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 p-6 text-center"
+                    data-aos="fade-up">
+                    <img src="img/icons/documents.png" alt="Technical Writing" class="w-12 h-12 mx-auto mb-4" />
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Technical Writing</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        I write clear, concise, and user-focused documentation, tutorials, and technical guides tailored
+                        to both technical and non-technical audiences.
+                    </p>
+                    <a href="#contact"
+                        class="inline-block bg-[#5cadea] text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Hire
+                        Me</a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 p-6 text-center"
+                    data-aos="fade-up">
+                    <img src="img/icons/graphic-design.png" alt="Graphic Design" class="w-12 h-12 mx-auto mb-4" />
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Graphic Design</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        I design engaging visuals for brands, websites, and social media—balancing creativity and
+                        clarity to communicate ideas effectively.
+                    </p>
+                    <a href="#contact"
+                        class="inline-block bg-[#5cadea] text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Hire
+                        Me</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!--END OF SERVICES SECTION-->
+
+        <!--PORTFOLIO SECTION STYING-->
+        <section id="portfolio" class="max-w-[1240px] mx-auto px-4 py-16">
+            <!-- Heading -->
+            <h2 class="text-4xl font-extrabold text-[#5cadea] text-center mb-12">Portfolio</h2>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+                <!-- 1. Django Reservation -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/django-reservation.png" alt="Django Reservation"
+                        class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Reservation App</h3>
+                        <p class="text-gray-600 text-sm mb-4">Reservation app system with user roles, calendar, and admin
+                            management.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+                <!-- 2. GetLinked Clone -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/getlinked.png" alt="GetLinked" class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">GetLinked Hackathon Clone</h3>
+                        <p class="text-gray-600 text-sm mb-4">A responsive, animated hackathon landing page built with
+                            Tailwind.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+                <!-- 3. E-commerce Site -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/e-commerce.png" alt="E-commerce" class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-commerce Website</h3>
+                        <p class="text-gray-600 text-sm mb-4">Complete e-commerce frontend with product filters, cart,
+                            and checkout.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+                <!-- 4. NAD Wears Template -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/nad-wears-template.png" alt="NAD Wears" class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">NAD Wears Template</h3>
+                        <p class="text-gray-600 text-sm mb-4">Fashion brand website template with modern layout and
+                            responsive design.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+                <!-- 5. NAD Tech -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/nad-tech.png" alt="NAD Tech" class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">NAD Tech Agency</h3>
+                        <p class="text-gray-600 text-sm mb-4">Agency site showcasing tech services, team members, and
+                            contact form.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+                <!-- 6. NAD Store -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/nad-store.png" alt="NAD Store" class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">NAD Online Store</h3>
+                        <p class="text-gray-600 text-sm mb-4">Simple e-commerce storefront with dynamic product listings
+                            and categories.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+                <!-- 7. React Portfolio -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/react-portfolio.png" alt="React Portfolio"
+                        class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">React Portfolio Site</h3>
+                        <p class="text-gray-600 text-sm mb-4">Personal portfolio built in React with routes, animations,
+                            and scroll effects.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+                <!-- 8. E-commerce 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
+                    data-aos="fade-up">
+                    <img src="img/portfolio/e-commerce.png" alt="E-commerce Site" class="w-full h-56 object-cover" />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Storefront UI Project</h3>
+                        <p class="text-gray-600 text-sm mb-4">An alternate UI approach to an e-commerce site with
+                            refined color palette.</p>
+                        <a href="#"
+                            class="inline-block bg-[#5cadea] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">View
+                            Project</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--END OF PROJECTS PAGE-->
+
+        <!--RESUME SECTION-->
+        <section id="resume" class="max-w-[1240px] ml-auto mr-auto p-2 border border-solid border-gray-300">
+            <h2 class="font-bold text-[2.5rem] text-[#5cadea] my-[20px]">Resume</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2">
+
+                <div class="bio" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                    <h2>Bio Summary</h2>
+                    <div class="resume-items">
+                        <h3>Nehemiah Agbu Dauda</h3>
+                        <h4>Web App Developer and Designer</h4>
+                        <ul>
+                            <li>Abuja, Nigeria</li>
+                            <li>+2348135307309</li>
+                            <li>nehemiahdauda60@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="education" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                    <h2>Education</h2>
+                    <div class="resume-items">
+                        <h3>B.A History and Diplomatic Studies</h3>
+                        <h4>Federal University Wukari <span>Oct 2014 - Oct 2018</span></h4>
+                    </div>
+                </div>
+
+                <div class="certifications" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                    <h2>Certifications</h2>
+                    <div class="resume-items">
+                        <h3 style="font-weight: 100;">Meta Front-End Developer <span>Feb 17, 2023</spantyle=>
+                        </h3>
+                        <h3 style="font-weight: 100;">Programming in Python<span>Sep 30, 2022</spantyle=>
+                        </h3>
+                        <h3 style="font-weight: 100;">Django Web Framework<span>Jan 14, 2023</span=>
+                        </h3>
+                        <h3 style="font-weight: 100;">Accelerated Jobberman Soft Skills Training<span>June 29, 2022
+                                </span=>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="skills" data-aos="fade-up" data-aos-duration="1000" style="line-height: 30px;">
+                    <h2>Skills Offered</h2>
+                    <div class="resume-items">
+                        <h3 style="font-weight: 100;">Website Development</h3>
+                        <h3 style="font-weight: 100;">Technical Writing</h3>
+                        <h3 style="font-weight: 100;">UI/UX Designer</h3>
+                        <h3 style="font-weight: 100;">Graphic Designer</h3>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!--TINY-SLIDER-->
+        <section class="max-w-[1240px] mx-auto p-2">
+            <div class="slideshow-container">
+                <h3>CERTIFICATIONS & LICENCES</h3>
+
+                <div class="slides">
+                    <div class="mySlides fade">
+                        <a href="img/certifications/front-end-developer.png">
+                            <img src="img/certifications/front-end-developer.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/django-web-framework.png">
+                            <img src="img/certifications/django-web-framework.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/advance-react.png">
+                            <img src="img/certifications/advance-react.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/Accelerated soft-skill.png">
+                            <img src="img/certifications/Accelerated soft-skill.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/apis.png">
+                            <img src="img/certifications/apis.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/full-stack.png">
+                            <img src="img/certifications/full-stack.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/version-control.png">
+                            <img src="img/certifications/version-control.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/principles-of-uxui.png">
+                            <img src="img/certifications/principles-of-uxui.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/prog-in-js.png">
+                            <img src="img/certifications/prog-in-js.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/prog-in-py.png">
+                            <img src="img/certifications/prog-in-py.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/intro-to-database.png">
+                            <img src="img/certifications/intro-to-backend.png">
+                        </a>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <a href="img/certifications/react-basics.png">
+                            <img src="img/certifications/react-basics.png">
+                        </a>
+                    </div>
+
+                </div>
+
+            </div><!--END OF TINY-SLIDER-->
+
+
+        </section>
+        <!--END OF RESUME SECTION-->
+
+        <!--CONTACT SECTION-->
+        <section id="contact" class="max-w-[1240px] ml-auto mr-auto p-2">
+            <h2 class="font-bold text-[2.5rem] text-[#5cadea] my-[20px]">GET IN TOUCH</h2>
+            <div class="contact-details md:flex md:justify-between ">
+
+                <div class="contact address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Address</h3>
+                    <p>Abuja, Nigeria</p>
+                </div>
+
+                <div class="contact call">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call</h3>
+                    <p>+234 8123 5953 48<br>+234 8135 3073 09</p>
+                </div>
+
+                <div class="contact email">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>nehemiahdauda60@gmail.com</p>
+                    <p>daudaagbu@gmail.com</p>
+
+                </div>
+
+            </div>
+            <i><a href="https://www.linkedin.com/in/nehemiah-dauda-525182228" class="fab fa-linkedin"></a></i>
+            <i><a href="https://github.com/MegaNAD60 " class="fab fa-github"></a></i>
+            <i><a href="https://twitter.com/dauda_nehemiah" class="fab fa-twitter"></a></i>
+            <i><a href="https://www.facebook.com/equity.justice.501" class="fab fa-facebook"></a></i>
+            <i><a href="https://www.instagram.com/nehemiahagbu" class="fab fa-instagram"></a></i>
+            <i><a href="https://wa.me/+2348135307309" class="fab fa-whatsapp"></a></i>
+            <i><a href="https://t.me/NehemiahD" class="fab fa-telegram"></a></i>
+
+        </section>
+        <!--END CONTACT SECTION-->
+
+
+    </main>
+    <footer class="footer"
+        style="text-align: center; padding: 30px 0; color: white; background-color: rgb(20, 29, 48);">
+        <p class="footer-details max-w-[1240px] ml-auto mr-auto p-2 flex">&copy <b>Nehemiah Dauda</b> 2025</p>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><!--aos.js script-->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script><!--typed.js script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+    <!--tiny-slider script-->
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
